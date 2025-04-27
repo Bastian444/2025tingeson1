@@ -1,0 +1,72 @@
+.list-all-bookings {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #434343;
+}
+
+.status-confirmed {
+    color: green;
+}
+
+.status-cancelled {
+    color: red;
+}
+
+.cancel-btn {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancel-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.loading, .error {
+    text-align: center;
+    padding: 50px;
+}
+
+/* Botón "Volver" */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #e0e0e0;
+}

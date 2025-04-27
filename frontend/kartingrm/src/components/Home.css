@@ -1,0 +1,106 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ocupa el 100% del alto de la ventana */
+    background-color: #121212;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Esto deshabilita el desplazamiento */
+    height: 100%;
+}
+
+.home-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0063ff;
+    margin-bottom: 10px;
+}
+
+.home-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Botones de Clientes */
+.client-login,
+.client-register,
+.staff-login,
+.staff-register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 44px; /* Altura fija para todos */
+    padding: 0; /* Eliminamos el padding para usar height */
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+.client-login {
+    background-color: #1e3a8a;
+}
+
+.client-login:hover {
+    background-color: #1e40af;
+}
+
+.client-register {
+    background-color: #3b82f6;
+}
+
+.client-register:hover {
+    background-color: #60a5fa;
+}
+
+/* Botones de Personal */
+.staff-login {
+    background-color: #065f46;
+}
+
+.staff-login:hover {
+    background-color: #047857;
+}
+
+.staff-register {
+    background-color: #34d399;
+}
+
+.staff-register:hover {
+    background-color: #6ee7b7;
+}

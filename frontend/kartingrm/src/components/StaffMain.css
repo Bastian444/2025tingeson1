@@ -1,0 +1,98 @@
+/* Navbar styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a202c;
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1000;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+}
+
+.nav-item {
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-item:hover {
+    color: #63b3ed;
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1a202c;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0;
+    min-width: 250px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+}
+
+.dropdown-menu li {
+    padding: 0.5rem 1rem;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu li:hover {
+    background-color: #2d3748;
+    color: #63b3ed;
+}
+
+/* Existing styles with margin adjustment */
+.main-container {
+    max-width: 800px;
+    margin: 6rem auto 2rem;
+    padding: 2rem;
+    background-color: #2d3748;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: white;
+}
+
+.welcome-message {
+    color: #ffffff;
+    margin-bottom: 2rem;
+}
+
+.logout-button {
+    padding: 0.5rem 1rem;
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #ef4444;
+}

@@ -1,0 +1,158 @@
+.rack-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    z-index: 100;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #1565c0;
+}
+
+.week-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 40px;
+}
+
+.nav-button {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #424242;
+    border-color: #555;
+}
+
+.week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px;
+}
+
+.day-column {
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #1e1e1e;
+    transition: transform 0.2s;
+}
+
+.day-column:hover {
+    transform: translateY(-2px);
+}
+
+.day-header {
+    padding: 10px;
+    text-align: center;
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #333;
+    color: #ffffff;
+}
+
+.day-name {
+    font-weight: bold;
+    display: block;
+    text-transform: capitalize;
+}
+
+.day-date {
+    font-size: 0.9em;
+    color: #b0b0b0;
+}
+
+.bookings-container {
+    padding: 10px;
+    min-height: 200px;
+}
+
+.booking-card {
+    background-color: #2d2d2d;
+    border: 1px solid #3d3d3d;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+}
+
+.booking-card:hover {
+    background-color: #383838;
+    border-color: #4d4d4d;
+}
+
+.booking-time {
+    font-weight: bold;
+    color: #bb86fc;
+    margin-bottom: 5px;
+}
+
+.booking-details {
+    font-size: 0.9em;
+}
+
+.booking-details span {
+    display: block;
+    margin-bottom: 3px;
+    color: #e0e0e0;
+}
+
+.booking-type {
+    color: #03dac6;
+}
+
+.booking-participants {
+    color: #ff7597;
+}
+
+.booking-rut {
+    color: #cf6679;
+}
+
+.no-bookings {
+    color: #757575;
+    font-style: italic;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.loading, .error {
+    text-align: center;
+    padding: 50px;
+    font-size: 18px;
+}
+
+.loading {
+    color: #bb86fc;
+}
+
+.error {
+    color: #cf6679;
+}
+
+h2 {
+    color: #ffffff;
+}

@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  mysql-db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pass1234?
+      MYSQL_DATABASE: kartingrm
+    ports:
+      - 33060:3306
+  app:
+    container_name: 2025frontend
+    image: bastianolea/2025frontend
+    ports:
+      - "8100:8100"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/kartingrm?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=pass1234?
+    deploy:
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - mysql-db

@@ -1,0 +1,133 @@
+/* Estilos base para tema oscuro */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Fondo oscuro general */
+    color: #e0e0e0; /* Texto claro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-y: auto;
+}
+
+/* Contenedor principal - Tema oscuro */
+.make-booking-container {
+    max-width: 800px;
+    margin: 80px auto 40px;
+    padding: 2rem;
+    background-color: #1e1e1e; /* Fondo de contenedor más claro que el body */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333; /* Borde sutil */
+}
+
+.make-booking-container h1 {
+    text-align: center;
+    color: #bb86fc; /* Color morado/accent moderno */
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #333;
+}
+
+/* Inputs y selects - Estilo oscuro */
+.input-group input,
+.input-group select {
+    padding: 0.75rem;
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 100%;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #bb86fc;
+    box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.2);
+}
+
+.input-group label {
+    font-weight: 600;
+    color: #a0a0a0; /* Texto más suave */
+}
+
+/* Sección de participantes - Tema oscuro */
+.participants-container {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background-color: #252525;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.participants-container h3 {
+    color: #03dac6; /* Color cyan/accent para contrastar */
+    margin-bottom: 1.5rem;
+}
+
+/* Botones - Estilo moderno */
+.show-participants-btn {
+    background-color: #3700b3; /* Azul oscuro */
+    color: white;
+    border: none;
+    padding: 0.7rem 1.3rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.show-participants-btn:hover {
+    background-color: #6200ee; /* Azul más vibrante */
+    transform: translateY(-1px);
+}
+
+.submit-btn {
+    background-color: #018786; /* Verde azulado oscuro */
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #03dac6; /* Cyan brillante */
+    color: #000000;
+}
+
+.cancel-btn {
+    background-color: #b00020; /* Rojo oscuro */
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #cf6679; /* Rosa suave */
+}
+
+/* Efectos hover para todos los botones */
+button {
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Scrollbar personalizada (opcional) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bb86fc;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9a67ea;
+}

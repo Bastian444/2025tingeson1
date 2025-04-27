@@ -1,0 +1,81 @@
+.my-bookings-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+
+.bookings-table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.bookings-table th, .bookings-table td {
+    border: 1px solid #373737;
+    padding: 12px;
+    text-align: left;
+}
+
+.bookings-table th {
+    background-color: #434343;
+    font-weight: bold;
+}
+
+.bookings-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.bookings-table tr:hover {
+    background-color: #9c9c9c;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.error-message {
+    color: #dc3545;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.payment-details-button {
+    background-color: #4a6bdf;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.payment-details-button:hover {
+    background-color: #3a56c0;
+}
+
+/* Asegúrate que la columna de acciones tenga suficiente espacio */
+.bookings-table td:last-child {
+    min-width: 150px;
+}
