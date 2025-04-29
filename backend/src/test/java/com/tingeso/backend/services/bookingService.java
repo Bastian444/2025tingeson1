@@ -196,4 +196,32 @@ class bookingServiceTest {
         assertEquals("Juan Pérez", actualBookings.get(0).getParticipant1());
         verify(bookingRepo, times(1)).findByStatus(status);
     }
+
+    @Test
+    void testDeleteBookingSuccess() throws Exception {
+        Long bookingId = 1L;
+
+        // No hacemos nada especial porque deleteById simplemente no lanza excepción.
+        doNothing().when(bookingRepo).deleteById(bookingId);
+
+        boolean result = bookingService.deleteBooking(bookingId);
+
+        assertTrue(result);
+        verify(bookingRepo, times(1)).deleteById(bookingId);
+    }
+
+    @Test
+    void testDeleteBookingThrowsException() {
+        Long bookingId = 2L;
+
+        // Simulamos que deleteById lanza una excepción.
+        doThrow(new RuntimeException("Error deleting booking")).when(bookingRepo).deleteById(bookingId);
+
+        Exception exception = assertThrows(Exception.class, () -> {
+            bookingService.deleteBooking(bookingId);
+        });
+
+        assertEquals("Error deleting booking", exception.getMessage());
+        verify(bookingRepo, times(1)).deleteById(bookingId);
+    }
 }

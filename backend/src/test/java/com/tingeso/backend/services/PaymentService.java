@@ -12,6 +12,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -22,6 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@MockitoSettings(strictness = Strictness.LENIENT)
 class PaymentServiceTest {
 
     @Mock
@@ -349,4 +352,63 @@ class PaymentServiceTest {
             assertEquals(1190.0f, amount, 0.01);
         }
     }
+
+    @Test
+    void testFindPaymentByBookingIdEmpty() {
+        when(paymentRepository.findByIdBooking(anyLong())).thenReturn(Optional.empty());
+
+        Optional<PaymentEntity> result = paymentService.findPaymentByBookingId(1L);
+
+        assertFalse(result.isPresent());
+    }
+
+    @Test
+    void testIsBirthday_NullBirthdateOrBookingDateTime() {
+        boolean result1 = paymentService.isBirthday(null, "2024-04-28T00:00:00");
+        boolean result2 = paymentService.isBirthday("2000-01-01T00:00:00", null);
+
+        assertFalse(result1);
+        assertFalse(result2);
+    }
+
+    @Test
+    void testGetParticipantRut_Exception() {
+        bookingEntity booking = new bookingEntity(); // Este objeto no tiene los métodos dinámicos.
+        String result = paymentService.getParticipantRut(booking, 99); // Llama a getParticipant99 (no existe).
+
+        assertNull(result);
+    }
+
+    @Test
+    void testSetParticipantPayment_Exception() {
+        PaymentEntity payment = new PaymentEntity();
+
+        // Para forzar la excepción, usamos un número inválido.
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+            paymentService.setParticipantPayment(payment, 99, "12345678-9", 10000f);
+        });
+
+        assertTrue(exception.getMessage().contains("Error al asignar pago al participante"));
+    }
+
+    @Test
+    void testGetParticipantAmount_Exception() {
+        PaymentEntity payment = new PaymentEntity();
+
+        Float result = paymentService.getParticipantAmount(payment, 99); // No existe el método getTotalParticipant99
+
+        assertNull(result);
+    }
+
+    @Test
+    void testSetParticipantAmount_Exception() {
+        PaymentEntity payment = new PaymentEntity();
+
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+            paymentService.setParticipantAmount(payment, 99, 15000f);
+        });
+
+        assertTrue(exception.getMessage().contains("Error al actualizar monto del participante"));
+    }
+
 }

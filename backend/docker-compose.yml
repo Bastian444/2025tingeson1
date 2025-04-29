@@ -1,5 +1,18 @@
 version: "3.8"
 services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - app1
+      - app2
+      - app3
+
   mysql-db:
     image: mysql
     restart: always
@@ -8,11 +21,41 @@ services:
       MYSQL_DATABASE: kartingrm
     ports:
       - 33060:3306
-  app:
-    container_name: 2025frontend
+  app1:
+    container_name: 2025frontend1
     image: bastianolea/2025frontend
     ports:
-      - "8100:8100"
+      - "8101:8100"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/kartingrm?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=pass1234?
+    deploy:
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - mysql-db
+
+  app2:
+    container_name: 2025frontend2
+    image: bastianolea/2025frontend
+    ports:
+      - "8102:8100"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/kartingrm?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=pass1234?
+    deploy:
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - mysql-db
+
+  app3:
+    container_name: 2025frontend3
+    image: bastianolea/2025frontend
+    ports:
+      - "8103:8100"
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/kartingrm?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
       - SPRING_DATASOURCE_USERNAME=root
